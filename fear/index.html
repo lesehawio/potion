@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>قفسه‌ی ترس</title>
+  <style>
+    :root {
+      --bg: #f0f7fa;
+      --card-bg: #ffffff;
+      --accent: #0277bd;
+      --border: #4fc3f7;
+      --hover: #bbdefb;
+      --text: #01579b;
+    }
+
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 40px;
+      direction: rtl;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      border-bottom: 3px solid var(--border);
+      display: inline-block;
+      padding-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 22px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 8px rgba(4, 115, 176, 0.1);
+    }
+
+    .card:hover {
+      background-color: var(--hover);
+      box-shadow: 0 6px 14px rgba(4, 115, 176, 0.3);
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>قفسه‌ی ترس</h1>
+
+  <div class="grid">
+    <a href="safe-haven.html" class="card">پناهگاه امن</a>
+    <a href="light-in-darkness.html" class="card">نور در تاریکی</a>
+    <a href="calm-fortress.html" class="card">قلعه‌ی آرامش</a>
+    <a href="breath-of-life.html" class="card">تنفس زندگی</a>
+    <a href="shield-of-courage.html" class="card">سپر شجاعت</a>
+    <a href="steady-steps.html" class="card">گام‌های مطمئن</a>
+    <a href="shadow-of-trust.html" class="card">سایه‌ی اطمینان</a>
+    <a href="guiding-light.html" class="card">چراغ راهنما</a>
+    <a href="helping-hand.html" class="card">دست یاری</a>
+    <a href="voice-of-calm.html" class="card">صدای آرامش</a>
+  </div>
+
+</body>
+</html>

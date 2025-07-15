@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>قفسه‌ی آرامش</title>
+  <style>
+    :root {
+      --bg: #e0f7f9;
+      --card-bg: #ffffff;
+      --accent: #009688; /* فیروزه‌ای تیره */
+      --border: #4db6ac; /* فیروزه‌ای ملایم */
+      --hover: #b2dfdb;  /* فیروزه‌ای روشن */
+      --text: #004d40;   /* فیروزه‌ای خیلی تیره */
+    }
+
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 40px;
+      direction: rtl;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      border-bottom: 3px solid var(--border);
+      display: inline-block;
+      padding-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 22px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 8px rgba(0, 150, 136, 0.15);
+    }
+
+    .card:hover {
+      background-color: var(--hover);
+      box-shadow: 0 6px 14px rgba(0, 150, 136, 0.35);
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>قفسه‌ی آرامش</h1>
+
+  <div class="grid">
+    <a href="deep-breathing.html" class="card">تمرین نفس‌عمیق و تنفس آگاهانه</a>
+    <a href="mindfulness-meditation.html" class="card">مدیتیشن ذهن‌آگاهی (Mindfulness)</a>
+    <a href="relaxing-music.html" class="card">گوش دادن به موسیقی آرامش‌بخش</a>
+    <a href="nature-walk.html" class="card">پیاده‌روی در طبیعت یا فضای سبز</a>
+    <a href="aromatherapy.html" class="card">استفاده از رایحه‌درمانی (مثل اسطوخودوس)</a>
+    <a href="daily-writing.html" class="card">نوشتن روزانه و ثبت احساسات</a>
+    <a href="warm-bath.html" class="card">حمام گرم یا استفاده از آب گرم</a>
+    <a href="yoga-stretching.html" class="card">یوگا یا حرکات کششی ملایم</a>
+    <a href="calm-environment.html" class="card">ایجاد فضای آرام در محیط زندگی (نور و دکور مناسب)</a>
+    <a href="positive-visualization.html" class="card">استفاده از تکنیک‌های تجسم مثبت و تصویرسازی ذهنی</a>
+  </div>
+
+</body>
+</html>

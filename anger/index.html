@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>قفسه‌ی خشم</title>
+  <style>
+    :root {
+      --bg: #fff8f5;
+      --card-bg: #fff;
+      --accent: #d84315;
+      --border: #ff7043;
+      --hover: #ffe0b2;
+      --text: #bf360c;
+    }
+
+    body {
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 40px;
+      direction: rtl;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      border-bottom: 3px solid var(--border);
+      display: inline-block;
+      padding-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 22px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 6px rgba(216, 67, 21, 0.1);
+    }
+
+    .card:hover {
+      background-color: var(--hover);
+      box-shadow: 0 6px 14px rgba(216, 67, 21, 0.3);
+      transform: translateY(-4px);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>قفسه‌ی خشم</h1>
+
+  <div class="grid">
+    <a href="strong-wind.html" class="card">باد تند کنترل</a>
+    <a href="fire-extinguisher.html" class="card">آتش خاموش‌کن</a>
+    <a href="peace-bridge.html" class="card">پل صلح</a>
+    <a href="breath-in-fire.html" class="card">نفسی در آتش</a>
+    <a href="inner-storm.html" class="card">طوفان درون</a>
+    <a href="thunder-silence.html" class="card">سکوت رعدآسا</a>
+    <a href="pebble-calm.html" class="card">سنگریزه‌ی آرامش</a>
+    <a href="burning-river.html" class="card">رودخانه‌ی خشم‌سوز</a>
+    <a href="kind-hand.html" class="card">دست مهربان</a>
+    <a href="smart-distance.html" class="card">فاصله‌ی هوشمندانه</a>
+  </div>
+
+</body>
+</html>
