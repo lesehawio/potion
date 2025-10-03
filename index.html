@@ -60,15 +60,22 @@
     .trust        { background-color: #f8e6ff; color: #e309bb; }
     .anticipation { background-color: #e7fdfa; color: #00bfa5; }
 
-    /* آیتم فرمول */
+    /* آیتم فرمول با بک‌گراند شفاف و تصویر بزرگ‌تر */
     .formula {
-      background-color: #fff6c0; /* رنگ طلایی ملایم */
+      background-color: transparent; /* شفاف */
+      padding: 0;
     }
 
     .formula img {
-      width: 50px;
-      height: 50px;
+      width: 80px;   /* سایز بزرگ‌تر */
+      height: 80px;
       object-fit: contain;
+      pointer-events: none; /* برای کلیک روی لینک */
+      transition: transform 0.25s ease;
+    }
+
+    .formula:hover img {
+      transform: scale(1.1); /* بزرگ شدن روی هاور */
     }
 
     @media (max-width: 500px) {
@@ -79,8 +86,8 @@
       }
 
       .formula img {
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
       }
 
       h1 {
@@ -103,7 +110,7 @@
     <a href="calm/index.html"      class="feeling anticipation">😌 آرامش</a>
 
     <!-- آیتم فرمول -->
-    <a href="formula/index.html"   class="feeling formula">
+    <a href="formula/index.html" class="feeling formula">
       <img src="https://uploadkon.ir/uploads/d8a403_25download.png" alt="فرمول">
     </a>
   </div>
