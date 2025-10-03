@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>الگوریتم‌های محرک — هورمون پایداری</title>
+
+  <!-- فونت -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fffaf0;
+      --panel: #fff7d9;
+      --accent: #f5c542;
+      --accent-2: #f7b500;
+      --muted: #6b6b6b;
+      --text: #2b2b2b;
+      --card-shadow: 0 6px 24px rgba(245,181,28,0.12);
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Vazirmatn", Tahoma, sans-serif;
+      background: linear-gradient(180deg, #fffdf6 0%, #fff7e6 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:32px;
+      direction:rtl;
+      line-height:1.6;
+    }
+
+    .wrap{
+      max-width:1000px;
+      margin:0 auto;
+    }
+
+    header{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      margin-bottom:26px;
+    }
+
+    .logo{
+      width:84px;
+      height:84px;
+      border-radius:12px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 8px 30px rgba(247,181,61,0.12);
+      flex-shrink:0;
+    }
+    .logo img{width:64px;height:64px;object-fit:contain;border-radius:8px}
+
+    h1{
+      margin:0;
+      font-size:1.6rem;
+      color:#2a2a2a;
+      letter-spacing:0.2px;
+    }
+    p.lead{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* grid of cards */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:18px;
+      margin-top:22px;
+    }
+
+    .card{
+      background:var(--panel);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--card-shadow);
+      border:1px solid rgba(247,171,30,0.08);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow: 0 18px 50px rgba(245,181,28,0.14);
+    }
+
+    .tag {
+      display:inline-block;
+  background-color: rgb(246, 192, 45); /* پس‌زمینه */
+  color: #000; /* رنگ متن (برای خوانایی) */
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.85rem;
+      margin-bottom:12px;
+    }
+
+    .if{
+      font-weight:700;
+      color:#2b2b2b;
+      margin-bottom:8px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .if b{background:#fff3d6;padding:4px 8px;border-radius:8px;font-weight:700;color:#7a4b00;font-size:0.9rem}
+
+    .then{
+      background:#fff;
+      padding:10px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,0.03);
+      margin-bottom:10px;
+      color:#222;
+      line-height:1.6;
+    }
+
+    .effects{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:8px;
+    }
+    .pill{
+      background:linear-gradient(90deg,#fff3d6,#fff1c2);
+      color:#6a3f00;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:0.88rem;
+      border:1px solid rgba(0,0,0,0.03);
+    }
+
+    .note{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    footer{
+      margin-top:34px;
+      text-align:center;
+      color:var(--muted);
+      font-size:0.9rem;
+    }
+
+    /* responsive */
+    @media (max-width:480px){
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+      .logo{width:72px;height:72px}
+      h1{font-size:1.25rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true">
+        <!-- اگر می‌خواهی تصویر لوگو بذاری، تگ img را اینجا فعال کن -->
+        <!-- <img src="https://cdn.imgurl.ir/uploads/v969367_.png" alt="لوگو"> -->
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5" fill="#fffaf0"/>
+          <path d="M6 12h12M6 8h12M6 16h12" stroke="#f7b500" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div>
+        <h1>الگوریتم‌های محرک — «هورمون پایداری»</h1>
+        <p class="lead">مجموعهٔ کوتاه از پروتکل‌های عملی برای بازگرداندن تعادل هورمونی و روانی در موقعیت‌های روزمره. هر کارت: حالت → کارکرد پیشنهادی → نتیجهٔ بیوشیمیایی.</p>
+      </div>
+    </header>
+
+    <main class="grid">
+
+      <!-- card 1 -->
+      <article class="card" aria-labelledby="a1">
+        <div class="tag">بعد کار و خستگی</div>
+        <div class="if"><b>IF</b> حالت = خستگی شدید</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>نور طبیعی — ۵ تا ۱۰ دقیقه</li>
+            <li>پیاده‌روی کوتاه — حدود ۷ دقیقه</li>
+            <li>میان‌وعده متعادل: پروتئین + کربوهیدرات (مثلاً ماست و میوه یا یک مشت مغز)</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">سروتونین ↑</span>
+          <span class="pill">دوپامین ↑</span>
+        </div>
+        <div class="note">ترکیب نور و حرکت کوتاه سریعاً انرژی و حالت روانی را بازیابی می‌کند؛ میان‌وعده باعث ثبات قند و پشتیبانی از عملکرد مغز می‌شود.</div>
+      </article>
+
+      <!-- card 2 -->
+      <article class="card" aria-labelledby="a2">
+        <div class="tag">اضطراب قبل از کار بزرگ</div>
+        <div class="if"><b>IF</b> حالت = اضطراب شروع</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>تنفس مکعبی — ۱ دقیقه</li>
+            <li>قرارگیری در وضعیت بدن قوی (صاف بایست/بنشین)</li>
+            <li>اجرای یک کار بسیار کوچک که سریع کامل شود (۲ دقیقه)</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">کورتیزول ↓</span>
+          <span class="pill">سروتونین ↑</span>
+        </div>
+        <div class="note">تبدیل اضطراب به حس توانمندی از طریق ترکیب تنفس، وضعیت بدنی و یک موفقیت کوچک.</div>
+      </article>
+
+      <!-- card 3 -->
+      <article class="card" aria-labelledby="a3">
+        <div class="tag">لغزش در پایبندی عادت</div>
+        <div class="if"><b>IF</b> حالت = شکست در عادت</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>لمس خود-آرام — ۲۰ ثانیه (خودنوازشی)</li>
+            <li>یادآوری و نوشتن «۳ موفقیت کوچک»</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">سروتونین ↑</span>
+          <span class="pill">اراده ↑</span>
+        </div>
+        <div class="note">تقویت حس ارزشمندی و بازسازی انگیزه با تمرکز بر موفقیت‌های کوچک و تماس بدنی مهربانانه.</div>
+      </article>
+
+      <!-- card 4 -->
+      <article class="card" aria-labelledby="a4">
+        <div class="tag">صبح بی‌انگیزه</div>
+        <div class="if"><b>IF</b> حالت = بی‌انگیزگی صبحگاهی</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>نور صبحگاهی — ۳ دقیقه</li>
+            <li>کشش ساده — ۳۰ ثانیه</li>
+            <li>وعده پروتئین در صبحانه</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">ملاتونین ↓</span>
+          <span class="pill">سروتونین ↑</span>
+        </div>
+        <div class="note">آغاز روز با نور و حرکت کوتاه به سرعت ریتم بدن را بیدار می‌کند و سروتونین را تقویت می‌کند.</div>
+      </article>
+
+      <!-- card 5 -->
+      <article class="card" aria-labelledby="a5">
+        <div class="tag">فشار تصمیم زیاد</div>
+        <div class="if"><b>IF</b> حالت = تصمیم‌گیری بیش‌ازحد</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>آماده‌سازی لباس/غذا از قبل (کاهش بار تصمیم)</li>
+            <li>توقف ۳ دقیقه‌ای قبل از تصمیم‌گیری</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">ذهن آزاد</span>
+          <span class="pill">سروتونین ثابت</span>
+        </div>
+        <div class="note">کاهش خستگی شناختی با ساده‌سازی امور روزمره و ایجاد زمان کوتاه برای بازتنظیم.</div>
+      </article>
+
+      <!-- card 6 -->
+      <article class="card" aria-labelledby="a6">
+        <div class="tag">بی‌خوابی یا خواب بد</div>
+        <div class="if"><b>IF</b> حالت = بی‌خوابی</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>کاهش نور (نور کم) ۹۰ دقیقه قبل از خواب</li>
+            <li>قطع صفحه‌نمایش (نور آبی)</li>
+            <li>نوشتن ۵ دقیقه‌ای برای سبک‌سازی ذهن</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">ملاتونین ↑</span>
+          <span class="pill">آرامش ↑</span>
+        </div>
+        <div class="note">روتین خواب محور و خاموش‌کردن تحریکات محیطی، ملاتونین را تسهیل و خواب را بهبود می‌دهد.</div>
+      </article>
+
+      <!-- card 7 -->
+      <article class="card" aria-labelledby="a7">
+        <div class="tag">بحران عاطفی</div>
+        <div class="if"><b>IF</b> حالت = فروپاشی روانی</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>تنفس کنترل‌شده — ۱ دقیقه</li>
+            <li>نوازش/لمس آرام (خود یا از سمت فرد امن)</li>
+            <li>معجون شیرین کوچک (مثلاً ۱ قاشق عسل یا یک خوراکی دلپذیر)</li>
+            <li>تماس کوتاه با فرد امن (تماس صوتی یا حضوری)</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">اکسی‌توسین ↑</span>
+          <span class="pill">سروتونین ↑</span>
+        </div>
+        <div class="note">ترکیب تماس بدنی، حمایت اجتماعی و پاداش سریع بیوشیمیایی می‌تواند فروپاشی را مهار و احساس امنیت را بازیابی کند.</div>
+      </article>
+
+      <!-- card 8 -->
+      <article class="card" aria-labelledby="a8">
+        <div class="tag">تمرکز طولانی (مطالعه/یادگیری)</div>
+        <div class="if"><b>IF</b> حالت = تمرکز فرسایشی</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>حرکت کوتاه — ۵ دقیقه (راه‌رفتن، کشش)</li>
+            <li>محیط ثابت و بدون حواس‌پرتی</li>
+            <li>پاداش میکرو هر ۲۰ دقیقه (مثلاً ۳۰ ثانیه استراحت یا خوراکی کوچک)</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">دوپامین ↑</span>
+          <span class="pill">سروتونین پایدار</span>
+        </div>
+        <div class="note">پالس‌های حرکتی و پاداش‌های کوچک باعث حفظ انگیزش و جلوگیری از فرسودگی شناختی می‌شوند.</div>
+      </article>
+
+      <!-- card 9 -->
+      <article class="card" aria-labelledby="a9">
+        <div class="tag">وسواس در حال فعال شدن</div>
+        <div class="if"><b>IF</b> حالت = نشانه وسواس</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>توقف ۱۰ ثانیه</li>
+            <li>عمل معکوس: نفس عمیق و تمرکز بر تنفس</li>
+            <li>انجام یک کار جایگزین ۲ دقیقه‌ای (مثلاً مرتب کردن کوتاه یا نوشتن)</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">نوراپی‌نفرین ↓</span>
+          <span class="pill">سروتونین ↑</span>
+        </div>
+        <div class="note">ایجاد تأخیر و جایگزینی کاری، مدارهای وسواسی را مختل و آرامش را بازمی‌گرداند.</div>
+      </article>
+
+      <!-- card 10 -->
+      <article class="card" aria-labelledby="a10">
+        <div class="tag">اورژانسی سروتونین</div>
+        <div class="if"><b>IF</b> حالت = سقوط سریع روحیه</div>
+        <div class="then">
+          <strong>THEN</strong>
+          <ul style="margin:8px 0 0 0;padding-right:18px">
+            <li>نور فوری طبیعی — ۲ تا ۵ دقیقه (پنجره یا لامپ روشن)</li>
+            <li>یک قاشق عسل یا خوراکی شیرین طبیعی</li>
+            <li>لمس/نوازش خود</li>
+            <li>تکرار یک جملهٔ مثبت کوتاه</li>
+          </ul>
+        </div>
+        <div class="effects">
+          <span class="pill">سروتونین ↑↑</span>
+        </div>
+        <div class="note">پروتکل فوری برای بالا بردن سروتونین و جلوگیری از افت خلق ناگهانی؛ مناسب برای لحظات بحران خُلقی کوتاه‌مدت.</div>
+      </article>
+
+    </main>
+
+    <footer>
+      نسخهٔ خلاصه و کاربردی «هورمون پایداری» — طراحی شده برای اجرا در زندگی روزمره.  
+      اگر می‌خواهی این‌ها را به فایل PDF تبدیل کنم یا قالب چاپ‌پس‌ند آماده کنم، بگو تا بسازمش.
+    </footer>
+  </div>
+</body>
+</html>
