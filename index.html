@@ -42,6 +42,7 @@
       font-size: 1.2rem;
       transition: all 0.25s ease;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
     }
 
     .feeling:hover {
@@ -59,11 +60,27 @@
     .trust        { background-color: #f8e6ff; color: #e309bb; }
     .anticipation { background-color: #e7fdfa; color: #00bfa5; }
 
+    /* آیتم فرمول */
+    .formula {
+      background-color: #fff6c0; /* رنگ طلایی ملایم */
+    }
+
+    .formula img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+    }
+
     @media (max-width: 500px) {
       .feeling {
         width: 120px;
         height: 90px;
         font-size: 1rem;
+      }
+
+      .formula img {
+        width: 40px;
+        height: 40px;
       }
 
       h1 {
@@ -84,6 +101,11 @@
     <a href="disgust/index.html"   class="feeling disgust">🤢 انزجار</a>
     <a href="love/index.html"      class="feeling trust">😍 عشق</a>
     <a href="calm/index.html"      class="feeling anticipation">😌 آرامش</a>
+
+    <!-- آیتم فرمول -->
+    <a href="formula/index.html"   class="feeling formula">
+      <img src="https://uploadkon.ir/uploads/d8a403_25download.png" alt="فرمول">
+    </a>
   </div>
 
 </body>
